@@ -1,1 +1,15 @@
-hI
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Print System Time') {
+            steps {
+                script {
+                    def currentTime = sh(script: "date", returnStdout: true).trim()
+                    echo "Current system time: ${currentTime}"
+                }
+            }
+        }
+    }
+}
